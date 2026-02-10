@@ -10,87 +10,46 @@
 </head>
 
 <body>
+
   <div class="header">
-    <button onclick=window.location.href='./contact.html'>
+    <button onclick="window.location.href='./contact.html'">
       <h2>Contact</h2>
     </button>
-    <button onclick=window.location.href='./about.html'>
+    <button onclick="window.location.href='./about.html'">
       <h1>Iris Currie</h1>
     </button>
-    <button onclick=window.location.href='./index.html'>
+    <button onclick="window.location.href='./index.html'">
       <h2>Portfolio</h2>
     </button>
   </div>
-  <div class="main">
-    <h1>Portfolio</h1>
-
-    <p class="heading">A portfolio of my work in video games over my time in college</p>
-
-    <div class="dropdown">
-      <button class="head-box" id="head-one">
-        <p>Class Work</p>
-        <div class="plus-minus">
-          <div class="vertical-line"></div>
-          <div class="horizontal-line"></div>
-        </div>
-      </button>
-      <div class="drop-box" id="drop-one">
-        <h3>Unity (Created Games)</h3>
-        <button onclick=window.location.href='./Projects/strangeTower.html'>Strange Tower</button>
-        <button onclick=window.location.href='./Projects/infiltrator.html'>Infiltrator</button>
-
-        <h3>Unreal (Class Tech Demos)</h3>
-        <button onclick=window.location.href='./Projects/maze.html'>Maze</button>
-        <button onclick=window.location.href='./Projects/castle.html'>Castle</button>
-        <button onclick=window.location.href='./Projects/rage.html'>Rage Game</button>
-
-        <h3>Other Mediums</h3>
-        <button onclick=window.location.href='./Projects/aurelin.html'>D&D Module</button>
-        <button onclick=window.location.href='./Projects/graphics.html'>Computer Graphics</button>
-
-        <h3>3D Modeling</h3>
-        <button onclick=window.location.href='./Projects/dorseyHall.html'>Miami Building</button>
-        <button onclick=window.location.href='./Projects/lampAnimation.html'>Lamp Animation</button>
+  <div class="container">
+    <button onclick="window.location.href='./ProjectDividers/Programming.html'">
+      <img src='./Media/Img/deadStar.png' class="Blurred">
+      <div class="Overlay">Projects in which I served as one of or the sole game programmer</div>
+      <p>Game Programming</p>
+    </button>
+    <button onclick="window.location.href='./ProjectDividers/Level.html'">
+      <img src='./Media/Img/InfiltrationMap.png' class="Blurred">
+      <div class="Overlay">Projects in which I served as a designer for the level or world that the player experienced
       </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="head-box" id="head-two">
-        <p>Personal Projects</p>
-        <div class="plus-minus">
-          <div class="vertical-line"></div>
-          <div class="horizontal-line"></div>
-        </div>
-      </button>
-      <div class="drop-box" id="drop-two">
-        <h3>Game Jams</h3>
-        <button onclick=window.location.href='./Projects/refreshProtocol.html'>Refresh Protocol</button>
-        <!--<button onclick=window.location.href='./Projects/stealth.html'>Stealth prototype</button>-->
-        <button onclick=window.location.href='./Projects/deadStarProtocol.html'>Dead Star Protocol</button>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="head-box" id="head-three">
-        <p>Code Files</p>
-        <div class="plus-minus">
-          <div class="vertical-line"></div>
-          <div class="horizontal-line"></div>
-        </div>
-      </button>
-      <div class="drop-box" id="drop-three">
-        <h3>Code Bases</h3>
-        <button onclick=window.location.href='https://github.com/IrisLC/Java-Projects/tree/main'>Java Projects</button>
-        <button onclick=window.location.href='https://github.com/IrisLC/Game-Code'>Game Code</button>
-      </div>
-    </div>
-
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <p>Note: this website was entirely designed, and implemented by myself using html, css, and javascript</p>
+      <p>Level Design</p>
+    </button>
+    <button onclick="window.location.href='./ProjectDividers/Story.html'">
+      <img src='./Media/Img/AurelinMap.png' class="Blurred">
+      <div class="Overlay">Projects involving the creation of fictional worlds across various forms of media</div>
+      <p>World Building</p>
+    </button>
+    <button onclick="window.location.href='./ProjectDividers/3d.html'">
+      <img src='./Media/Img/3DRasterize.png' class="Blurred">
+      <div class="Overlay">3D models and 3D computer graphics systems</div>
+      <p>3D Creations</p>
+    </button>
+    <button onclick="window.location.href='./ProjectDividers/Code.html'">
+      <img src='./Media/Img/CodeScreenshot.png' class="Blurred">
+      <div class="Overlay">Links to Github repositories containing code written in Java, C# and C++</div>
+      <p>Code Samples</p>
+    </button>
   </div>
-
 
 
 </body>
