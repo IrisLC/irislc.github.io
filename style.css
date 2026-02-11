@@ -57,6 +57,14 @@ p {
   padding: 1rem;
 }
 
+.ProfilePic {
+  float: right;
+  width: 25%;
+  height: auto;
+  border: 2px solid #000;
+  padding: 5px;
+}
+
 .spacer {
   height: 3rem;
 }
@@ -82,7 +90,12 @@ button:hover {
   padding-top: 5%;
 }
 .contacts li {
-  font-size: 24pt;
+  font-size: 20pt;
+}
+
+li .Subtext {
+  margin-top: -2ch;
+  font-size: 15pt;
 }
 
 /* Portfolio */
@@ -211,4 +224,13 @@ img {
   max-width: 300px;
   width: 75%;
   margin: 1rem;
+}
+
+.CodeExplanation {
+  justify-content: center;
+  margin: 1% 5%;
+
+  p {
+    text-align: center;
+  }
 }
