@@ -16,6 +16,7 @@ body {
   width: 100vw;
   padding: 0px;
   margin: 0px;
+  border: 0px;
   min-height: 100vh;
 
   display: flex;
@@ -87,6 +88,22 @@ button:hover {
   background-color: #53599a;
 }
 
+.Footer {
+  background-color: var(--buttons);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+
+  a {
+    margin: 1ch;
+    color: var(--white);
+  }
+
+  height: 10vh;
+}
+
 /* Contact */
 .contacts {
   padding-left: 10%;
@@ -113,7 +130,7 @@ li .Subtext {
 
   display: flex;
   flex-wrap: wrap;
-
+  width: 100%;
   gap: 2rem;
 
   justify-content: center;
@@ -121,8 +138,10 @@ li .Subtext {
   button {
     position: relative;
     padding: 0;
-    width: 70%;
-    height: 70%;
+    width: 30%;
+    height: auto;
+
+    aspect-ratio: 5/2.5;
 
     max-width: 500px;
     max-height: 200px;
@@ -251,4 +270,7 @@ img {
   width: 500px;
   height: 200px;
   max-width: 80vw;
+}
+
+@media {
 }
