@@ -113,12 +113,15 @@ button:hover {
 
 /* Contact */
 .contacts {
-  padding-left: 10%;
-  padding-top: 5%;
-}
-.contacts li {
-  font-size: 20pt;
-  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+
+  * {
+    font-size: 17.5pt;
+  }
 }
 
 li .Subtext {
