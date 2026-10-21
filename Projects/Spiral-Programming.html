@@ -30,9 +30,10 @@
         <p>
           A part point and click puzzle game, part first person horror game all about managing one's anxiety and the
           dangers of overwork and losing sight of your priorities. This game is being developed as part of my
-          Senior Capstone. We plan on releasing the game on Steam at the end of its development, in Spring 2027.
+          Senior Capstone. We are currently working towards having a beta build by December of this year, and plan on
+          releasing the game on Steam at the end of its development, in mid-late Spring 2027.
         </p>
-        <p>You can find a vertical slice of this game on itch.io <a href="https://reeserocks.itch.io/spiral">here</a>.
+        <p>You can find this game's alpha build on itch.io <a href="https://reeserocks.itch.io/spiral">here</a>.
         </p>
 
         <h3>What Is My Part?</h3>
@@ -52,6 +53,7 @@
 
         <h3>The Results</h3>
 
+        <h4>Vertical Slice</h4>
         <p>
           As of writing, <i>Spiral</i> is still in development, but, there has already been a lot of work put into the
           game. In the span of approximately 6 weeks, we were able to take <i>Spiral</i> from concept, to a fleshed out
@@ -64,6 +66,7 @@
           lost in the level, and better diagnose possible solutions.
         </p>
 
+        <h4>Summer work</h4>
         <p>
           Additionally, in the 3 months following the vertical slice,
           during which development was largely paused for the summer, I worked on refactoring the code base of the game,
@@ -74,6 +77,35 @@
           systems, a way to easily create more puzzles based off of his writing and following simple prompts for
           entering the information. From that entered information the tools would automatically construct the text given
           into a new, working, challenge for the players to deal with.
+        </p>
+        <h4>Alpha</h4>
+        <p>For the alpha version of the game, I spent most of my programming time on expanding how the player interacts
+          with the world, and how the world interacts with the player. One of the big mechanics I worked on was the
+          addition of coworkers, NPC's who will occasionally come up to the player and begin talking with them,
+          distracting the player from the work they need to get done. To implement this mechanic, I created a
+          generalized system that allowed a script to subscribe to be alerted when the day's timer hit a certain time,
+          and when that occurred to allow that script to spawn an object or activate a behavior relating to a
+          ScriptableObject that implemented the necessary interface, the time I spent creating this system paid off, as
+          it was later used in 3 other systems throughout the game. Additionally, to really sell that a coworker was
+          pulling the main character's attention away from their work, I modified the main camera's movement to
+          passively drag the player's view over towards the coworker. This is not to an extent that it's impossible to
+          do work on the tasks, but it is intended to add an extra bit of distraction, incentivizing the player to tell
+          the coworker to go away. However, doing such a thing, in accordance with the themes of the game, will
+          negatively influence the variables behind the scene that determine the ending the player will get.</p>
+
+        <p>The other big project I headed during the alpha's development was changing the game's computer interface from
+          being a screen space UI to being world space. As a team we had been implementing a number of mechanics that
+          made changes to the world around the player, however, playtests showed that there was no incentive for the
+          player to not be on their computer, which at the time was a UI that took up the entirety of the player's
+          screen. Because of this, we decided the best route forward was to change the UI to be fixed at a point in the
+          world. This change was a large undertaking, as it involved a core change to the systems that were responsible
+          for > 80% of the way that the player interacted with the game. However, due to the work I put in, we were able
+          to achieve this massive rework in ~10 hours, and have it be in a bug free state by the end of the one week
+          sprint.</p>
+
+        <p>On top of all this, there were a number of other changes I made on our alpha, including reworking how tasks
+          are given to the player, adding the code for 2 new kinds of tasks (as well as fully reworking another),
+          allowing the player to stand up from their desk, bug fixing the code of the other programmers, and much more.
         </p>
 
         <p>
