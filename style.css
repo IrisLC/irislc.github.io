@@ -276,6 +276,33 @@ img {
   max-width: 80vw;
 }
 
+.scrollMenu {
+  width: 66vw;
+  height: 60vh;
+  background-color: #fff;
+  color: black;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.scrollMenu textarea {
+  min-width: 100%;
+  min-height: 100%;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(25, 26, 28);
+  color: rgb(213, 210, 202);
+  display: inline-block;
+  text-align: left;
+  padding: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.scrollMenu a:hover {
+  background-color: #777;
+}
+
 @media (max-width: 850px) {
   p {
     margin-left: 2%;

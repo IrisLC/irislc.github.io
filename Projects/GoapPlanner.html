@@ -1,0 +1,154 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+  <title>Iris Currie</title>
+</head>
+
+<body>
+  <div class="header">
+    <button onclick="window.location.href='../index.html'">
+      <h1>Iris Currie</h1>
+    </button>
+    <button onclick="window.location.href='../about.html'">
+      <h2>About Me</h2>
+    </button>
+    <button onclick="window.location.href='../contact.html'">
+      <h2>Contact</h2>
+    </button>
+  </div>
+  <div class="main">
+    <h1>GOAP Planner, Active Project</h1>
+    <h2>Unreal Engine 5, C++</h2>
+    <div class="divided">
+      <div class="text-holder">
+        <h3>What Is This?</h3>
+        <p>
+          This is the planner class for a custom implementation of Goal Oriented Action Planning (GOAP) I am working on
+          as part of a personal project. For those who
+          may not know, GOAP is a means of game AI decision making. This planner is part of a larger project doing deep
+          dives into various kinds of game AI decision making, from behavior trees, to GOAP, to utility theory, etc.
+          For this project I will be coding implementations of each type, and then creating examples of the
+          implementations in use in Unreal Engine 5, specifically interfacing with the Lyra project.
+        </p>
+
+        <h3>Code</h3>
+
+        <div>GoapPlanner.h</div>
+        <div class="scrollMenu">
+          <textarea id="plannerH" readonly></textarea>
+          <script>
+            async function loadTextFile() {
+              try {
+                const response = await fetch('../Media/GoapPlanner.h');
+                const text = await response.text();
+                document.getElementById('plannerH').value = text;
+              } catch (error) {
+                console.error('Error loading file:', error);
+              }
+            }
+
+            loadTextFile();
+          </script>
+        </div>
+        <div class="spacer"></div>
+        <div>GoapPlanner.cpp</div>
+        <div class="scrollMenu" readonly>
+          <textarea id="plannerCPP"></textarea>
+          <script>
+            async function loadTextFile() {
+              try {
+                const response = await fetch('../Media/GoapPlanner.cpp');
+                const text = await response.text();
+                document.getElementById('plannerCPP').value = text;
+              } catch (error) {
+                console.error('Error loading file:', error);
+              }
+            }
+
+            loadTextFile();
+          </script>
+        </div>
+
+        <p>This planner operates with 3 external classes. Those being:</p>
+        <ul>
+          <li>FWorldState (A variable that represents some aspect of the world and evaluates to a boolean)</li>
+          <br>
+          <li>FAgentGoal (A collection of FWorldStates that the controller desires to be true, as well as a priority
+            value stating how much the agent wants this to happen)</li>
+          <br>
+          <li>FAgentAction (A class containing two collections of FWorldStates one being states that doing the action
+            will turn true, the other states that must be true for this action to occur; a cost of performing the
+            action, as well as a strategy, that being what the AIController will do when the action is executed)</li>
+        </ul>
+        <p>
+          When an AIController utilizing GOAP wants a goal to carry out, it calls FGoapPlanner::Plan, supplying a list
+          of
+          goals and actions to consider. The planner will then filter the list of goals to only look at ones that do not
+          have all their requirements met. It will then go through the list of goals, starting with ones with a higher
+          priority, and determine if that goal has a valid sequence of actions that can be taken to achieve it, stopping
+          when it finds a goal that can be achieved.
+        </p>
+
+        <p>
+          To determine the achievability of a goal, the planner uses a variation on an A* pathfinding algorithm to try
+          to find a path from the current series of WorldStates to an outcome where all WorldStates required by the goal
+          are met. This is done by:
+        </p>
+        <ol>
+          <li>Making a list of all WorldStates that the goal requires to be true that are not already true</li>
+          <li>Creating a node for each action that will satisfy at least one of these WorldStates, with the node parent
+            being the goal</li>
+          <li>Adding each created node to a list of open nodes</li>
+          <li>Repeat the previous steps, substituting the goal node for the cheapest node in the list of open nodes,
+            removing the cheapest node from the list</li>
+        </ol>
+        <p>
+          The cost of a node (FCost) is calculated as a combination of the node's GCost (the cost of performing the
+          action
+          associated with the node) and HCost (how many WorldStates that node's path still needs to be true). If we find
+          an action that satisfies all currently untrue WorldStates, we return that node as it represents a sequence of
+          actions that will successfully complete the goal. However, if the list of open nodes is ever empty, then there
+          are no feasible paths to reach the goal, in which case the function returns a nullptr, signaling the planner
+          to
+          check the next goal.
+          <br>
+          It should also be noted that there is a check in the process of finding actions that satisfy worldStates to
+          prevent bloat of the open node list in the event where there are two actions A and B where both A->B and B->A
+          are valid paths with the same outcome. In this case, if A->B is already added to the list, B->A will be
+          skipped
+          over.
+          <br>
+          Finally, once a valid series of actions to a goal is found, the planner converts those actions into an
+          FActionPlan and returns it to the AIController, deallocating the memory used for the nodes along the way.
+        </p>
+        <div class="spacer"></div>
+        <p>This project is still in development, future planned additions to the GOAP planner are to allow goals to have
+          WorldStates that must be false (the current implementation only checks for true WorldStates), as well as make
+          modifications to improve the efficiency of the planner (including changing the nodes from a linkedList to a
+          tree). Further changes will allow WorldStates, Goals, and
+          Actions to be created with Unreal Engine's data assets, rather than the current hard coded implementations,
+          and for strategies (how actions are executed) to be able to be coded in blueprints. Additionally, I hope to be
+          able to interface these systems with Unreal Engine's Blackboard, EQS system and PerceptionComponent, as well
+          as potentially create a User Interface to set up GOAP behaviors similar to Unreal Engine's behavior tree
+          system.
+        </p>
+        <div class="spacer"></div>
+        <button
+          onclick="window.location.href='https://github.com/IrisLC/EnemyAIWorkspace/tree/main/Source/EnemyAIWorkspace/EnemyAI/GOAP'"
+          class="CodeButtons">To see the code for the rest of the GOAP implementation, click here</button>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="Footer">
+    <a href="../ProjectDividers/Programming.html">Game Programming</a>
+    <a href="../ProjectDividers/Level.html">Level Design</a>
+    <a href="../ProjectDividers/Story.html">World Building</a>
+    <a href="../about.html">About Me</a>
+    <a href="../contact.html">Contacts</a>
+    <a href="https://linkedin.com/in/iris-currie">LinkedIn</a>
+  </div>
+</body>
